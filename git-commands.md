@@ -125,7 +125,34 @@ git log --oneline
 
 ------------------------------------------------------------------------
 
-# 4️⃣ Branching
+# 4️⃣ Remote Repository
+
+## git remote
+
+**Purpose:** Manage remote repositories connected to your local
+repository.
+
+### View Remote Repositories
+
+``` bash
+git remote -v
+```
+
+### Add Remote Repository
+
+``` bash
+git remote add origin https://github.com/username/repository.git
+```
+
+### Update Remote URL
+
+``` bash
+git remote set-url origin https://github.com/username/new-repository.git
+```
+
+------------------------------------------------------------------------
+
+# 5️⃣ Branching
 
 ## git branch
 
