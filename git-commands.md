@@ -113,7 +113,7 @@ Example Output:
 
 ------------------------------------------------------------------------
 
-# 🚀 Basic Workflow Example
+#  Basic Workflow Example
 
 ``` bash
 git init
@@ -222,7 +222,7 @@ git push origin --delete feature-branch
 
 # 6️⃣ Remote Synchronization
 
-## 🔹 git push
+##  git push
 
 **Purpose:** Push local commits to a remote repository.
 
@@ -238,7 +238,7 @@ git push -u origin feature-branch
 
 ------------------------------------------------------------------------
 
-## 🔹 git pull
+##  git pull
 
 **Purpose:** Fetch and merge changes from a remote repository.
 
@@ -248,7 +248,7 @@ git pull origin main
 
 ------------------------------------------------------------------------
 
-# 🚀 Basic Workflow Example
+#  Basic Workflow Example
 
 ``` bash
 git init
