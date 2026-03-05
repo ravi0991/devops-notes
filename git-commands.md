@@ -2,8 +2,8 @@
 
 This document covers essential Git commands grouped by category:
 
--   Setup & Configuration\
--   Workflow\
+-   Setup & Configuration
+-   Workflow
 -   Viewing Changes
 
 ------------------------------------------------------------------------
@@ -219,3 +219,46 @@ git push origin --delete feature-branch
 ```
 
 ------------------------------------------------------------------------
+
+# 6️⃣ Remote Synchronization
+
+## 🔹 git push
+
+**Purpose:** Push local commits to a remote repository.
+
+``` bash
+git push origin main
+```
+
+### Push New Branch
+
+``` bash
+git push -u origin feature-branch
+```
+
+------------------------------------------------------------------------
+
+## 🔹 git pull
+
+**Purpose:** Fetch and merge changes from a remote repository.
+
+``` bash
+git pull origin main
+```
+
+------------------------------------------------------------------------
+
+# 🚀 Basic Workflow Example
+
+``` bash
+git init
+git remote add origin https://github.com/username/repository.git
+git status
+git add .
+git commit -m "Initial commit"
+git branch feature-branch
+git checkout feature-branch
+git push -u origin feature-branch
+git pull origin main
+git log --oneline
+```
