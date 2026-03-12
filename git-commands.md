@@ -267,3 +267,5 @@ second change on feature-profile branch
 third change on feature-profile branch
 fourth change on feature-profile branch
 final change on feature-profile branch
+
+first change on feature-settings branch
