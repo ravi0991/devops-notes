@@ -263,10 +263,3 @@ git pull origin main
 git log --oneline
 ```
 
-this is the change from main branch
-
-This is first change in feature-dashboard branch
-
-This is second change in feature-dashboard branch
-
-This is third change in feature-dashboard branch
