@@ -263,12 +263,3 @@ git pull origin main
 git log --oneline
 ```
 
-added a new code to dev branch
-this code is in progress
-login feature code added
-this is a good feature which will fix all the bugs in application
-new code
-login feature code added
-this is a good feature which will fix all the bugs in application
-login feature code added
-this is a good feature which will fix all the bugs in application
