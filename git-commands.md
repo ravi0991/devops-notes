@@ -262,12 +262,6 @@ git push -u origin feature-branch
 git pull origin main
 git log --oneline
 ```
-first change on feature-profile branch
-second change on feature-profile branch
-third change on feature-profile branch
-fourth change on feature-profile branch
-final change on feature-profile branch
 
-first change on feature-settings branch
-second change on feature-settings branch
-third change on feature-settings branch
+login feature code added
+this is a good feature which will fix all the bugs in application
