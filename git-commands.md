@@ -263,3 +263,6 @@ git pull origin main
 git log --oneline
 ```
 
+added first code to rectify errors in application
+
+first code had bugs, so modified the code to fix the bugs
