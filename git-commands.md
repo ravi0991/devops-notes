@@ -263,16 +263,12 @@ git pull origin main
 git log --oneline
 ```
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 added a new code to dev branch
 this code is in progress
-=======
 login feature code added
 this is a good feature which will fix all the bugs in application
 new code
->>>>>>> Stashed changes
-=======
 login feature code added
 this is a good feature which will fix all the bugs in application
->>>>>>> dev
+login feature code added
+this is a good feature which will fix all the bugs in application
