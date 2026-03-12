@@ -1,10 +1,12 @@
-#  Git Basic Commands Guide
+# 📘 Git Basic Commands Guide
 
 This document covers essential Git commands grouped by category:
 
 -   Setup & Configuration
 -   Workflow
 -   Viewing Changes
+-   Remote & Branching
+-   Advanced Git Operations
 
 ------------------------------------------------------------------------
 
@@ -113,21 +115,9 @@ Example Output:
 
 ------------------------------------------------------------------------
 
-#  Basic Workflow Example
-
-``` bash
-git init
-git status
-git add .
-git commit -m "Initial commit"
-git log --oneline
-```
-
-------------------------------------------------------------------------
-
 # 4️⃣ Remote Repository
 
-## git remote
+##  git remote
 
 **Purpose:** Manage remote repositories connected to your local
 repository.
@@ -154,17 +144,17 @@ git remote set-url origin https://github.com/username/new-repository.git
 
 # 5️⃣ Branching
 
-## git branch
+##  git branch
 
 **Purpose:** List or create branches.
 
-List branches:
+### List Branches
 
 ``` bash
 git branch
 ```
 
-Create new branch:
+### Create New Branch
 
 ``` bash
 git branch feature-branch
@@ -172,7 +162,7 @@ git branch feature-branch
 
 ------------------------------------------------------------------------
 
-## git checkout
+##  git checkout
 
 **Purpose:** Switch between branches.
 
@@ -180,42 +170,10 @@ git branch feature-branch
 git checkout feature-branch
 ```
 
-Create and switch to new branch:
+### Create and Switch to New Branch
 
 ``` bash
 git checkout -b feature-branch
-```
-
-------------------------------------------------------------------------
-
-## git merge
-
-**Purpose:** Merge one branch into another.
-
-``` bash
-git merge feature-branch
-```
-
-------------------------------------------------------------------------
-
-## Delete Branch
-
-Delete local branch (safe):
-
-``` bash
-git branch -d feature-branch
-```
-
-Force delete local branch:
-
-``` bash
-git branch -D feature-branch
-```
-
-Delete remote branch:
-
-``` bash
-git push origin --delete feature-branch
 ```
 
 ------------------------------------------------------------------------
@@ -248,6 +206,88 @@ git pull origin main
 
 ------------------------------------------------------------------------
 
+# 7️⃣ Advanced Git Operations
+
+##  git merge
+
+**Purpose:** Merge changes from one branch into another.
+
+``` bash
+git checkout main
+git merge feature-branch
+```
+
+------------------------------------------------------------------------
+
+##  git rebase
+
+**Purpose:** Reapply commits from one branch on top of another branch.
+
+``` bash
+git checkout feature-branch
+git rebase main
+```
+
+------------------------------------------------------------------------
+
+##  Squash Commit vs Merge Commit
+
+**Merge Commit** keeps the full history of the feature branch.
+
+``` bash
+git merge feature-branch
+```
+
+**Squash Commit** combines all feature branch commits into a single
+commit.
+
+``` bash
+git merge --squash feature-branch
+git commit -m "Squashed feature commits"
+```
+
+------------------------------------------------------------------------
+
+##  git stash
+
+**Purpose:** Temporarily save uncommitted changes.
+
+### Stash Changes
+
+``` bash
+git stash
+```
+
+### View Stashes
+
+``` bash
+git stash list
+```
+
+### Apply Stash
+
+``` bash
+git stash apply
+```
+
+------------------------------------------------------------------------
+
+##  git cherry-pick
+
+**Purpose:** Apply a specific commit from another branch.
+
+``` bash
+git cherry-pick <commit-id>
+```
+
+Example:
+
+``` bash
+git cherry-pick a3f5d2b
+```
+
+------------------------------------------------------------------------
+
 #  Basic Workflow Example
 
 ``` bash
@@ -263,6 +303,3 @@ git pull origin main
 git log --oneline
 ```
 
-added first code to rectify errors in application
-
-first code had bugs, so modified the code to fix the bugs
