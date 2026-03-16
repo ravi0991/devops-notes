@@ -1,29 +1,33 @@
-# 📘 Git Basic Commands Guide
+# 📘 Git & GitHub Commands Reference Guide
 
-This document covers essential Git commands grouped by category:
+This guide covers essential Git and GitHub CLI commands learned across
+Days 22--26.
+
+Sections included:
 
 -   Setup & Configuration
--   Workflow
--   Viewing Changes
--   Remote & Branching
--   Advanced Git Operations
+-   Basic Workflow
+-   Branching
+-   Remote Repositories
+-   Merging & Rebasing
+-   Stash & Cherry Pick
+-   Reset & Revert
+-   GitHub CLI (gh) Commands
 
 ------------------------------------------------------------------------
 
 # 1️⃣ Setup & Configuration
 
-##  git config
+## git config
 
-**Purpose:** Configure username and email for Git.
-
-### Set Global Username & Email
+Configure Git username and email.
 
 ``` bash
 git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 ```
 
-### Verify Configuration
+Verify configuration:
 
 ``` bash
 git config --list
@@ -31,9 +35,9 @@ git config --list
 
 ------------------------------------------------------------------------
 
-##  git init
+## git init
 
-**Purpose:** Initialize a new Git repository.
+Initialize a new Git repository.
 
 ``` bash
 git init
@@ -41,12 +45,21 @@ git init
 
 ------------------------------------------------------------------------
 
-# 2️⃣ Workflow
+## git clone
 
-##  git status
+Clone an existing repository.
 
-**Purpose:** Check the current state of files (tracked, modified,
-staged, untracked).
+``` bash
+git clone https://github.com/username/repository.git
+```
+
+------------------------------------------------------------------------
+
+# 2️⃣ Basic Workflow
+
+## git status
+
+Check current state of repository.
 
 ``` bash
 git status
@@ -54,17 +67,17 @@ git status
 
 ------------------------------------------------------------------------
 
-##  git add
+## git add
 
-**Purpose:** Add files to the staging area.
+Add files to staging area.
 
-### Add Single File
+Add single file:
 
 ``` bash
-git add filename.txt
+git add file.txt
 ```
 
-### Add All Files
+Add all files:
 
 ``` bash
 git add .
@@ -72,89 +85,59 @@ git add .
 
 ------------------------------------------------------------------------
 
-##  git commit
+## git commit
 
-**Purpose:** Save staged changes to the local repository.
-
-``` bash
-git commit -m "Your commit message here"
-```
-
-Example:
+Save staged changes.
 
 ``` bash
-git commit -m "Initial commit"
+git commit -m "Commit message"
 ```
 
 ------------------------------------------------------------------------
 
-# 3️⃣ Viewing Changes
+## git log
 
-##  git log
-
-**Purpose:** View detailed commit history.
+View commit history.
 
 ``` bash
 git log
 ```
 
-------------------------------------------------------------------------
-
-##  git log --oneline
-
-**Purpose:** View commit history in compact single-line format.
+Compact view:
 
 ``` bash
 git log --oneline
 ```
 
-Example Output:
-
-    a3f5d2b Added README file
-    b7c9e1a Initial commit
-
 ------------------------------------------------------------------------
 
-# 4️⃣ Remote Repository
+## git diff
 
-##  git remote
-
-**Purpose:** Manage remote repositories connected to your local
-repository.
-
-### View Remote Repositories
+Show changes between commits, branches, or working directory.
 
 ``` bash
-git remote -v
+git diff
 ```
 
-### Add Remote Repository
+View staged changes:
 
 ``` bash
-git remote add origin https://github.com/username/repository.git
-```
-
-### Update Remote URL
-
-``` bash
-git remote set-url origin https://github.com/username/new-repository.git
+git diff --staged
 ```
 
 ------------------------------------------------------------------------
 
-# 5️⃣ Branching
+# 3️⃣ Branching
 
-##  git branch
+## git branch
 
-**Purpose:** List or create branches.
-
-### List Branches
+List branches.
 
 ``` bash
 git branch
 ```
 
-### Create New Branch
+Create branch:
 
 ``` bash
 git branch feature-branch
@@ -162,15 +145,15 @@ git branch feature-branch
 
 ------------------------------------------------------------------------
 
-##  git checkout
+## git checkout
 
-**Purpose:** Switch between branches.
+Switch branches.
 
 ``` bash
 git checkout feature-branch
 ```
 
-### Create and Switch to New Branch
+Create and switch:
 
 ``` bash
 git checkout -b feature-branch
@@ -178,17 +161,55 @@ git checkout -b feature-branch
 
 ------------------------------------------------------------------------
 
-# 6️⃣ Remote Synchronization
+## git switch
 
-##  git push
+Modern alternative to checkout.
 
-**Purpose:** Push local commits to a remote repository.
+``` bash
+git switch feature-branch
+```
+
+Create new branch:
+
+``` bash
+git switch -c feature-branch
+```
+
+------------------------------------------------------------------------
+
+# 4️⃣ Remote Repositories
+
+## git remote
+
+View remote repositories.
+
+``` bash
+git remote -v
+```
+
+Add remote:
+
+``` bash
+git remote add origin https://github.com/user/repo.git
+```
+
+Update remote URL:
+
+``` bash
+git remote set-url origin NEW_URL
+```
+
+------------------------------------------------------------------------
+
+## git push
+
+Push commits to remote repository.
 
 ``` bash
 git push origin main
 ```
 
-### Push New Branch
+Push new branch:
 
 ``` bash
 git push -u origin feature-branch
@@ -196,9 +217,9 @@ git push -u origin feature-branch
 
 ------------------------------------------------------------------------
 
-##  git pull
+## git pull
 
-**Purpose:** Fetch and merge changes from a remote repository.
+Fetch and merge remote changes.
 
 ``` bash
 git pull origin main
@@ -206,11 +227,28 @@ git pull origin main
 
 ------------------------------------------------------------------------
 
-# 7️⃣ Advanced Git Operations
+## git fetch
 
-##  git merge
+Download changes without merging.
 
-**Purpose:** Merge changes from one branch into another.
+``` bash
+git fetch origin
+```
+
+------------------------------------------------------------------------
+
+## Fork (Concept)
+
+Create a personal copy of someone else's repository on GitHub for
+experimentation and contributions.
+
+------------------------------------------------------------------------
+
+# 5️⃣ Merging & Rebasing
+
+## git merge
+
+Merge feature branch into main branch.
 
 ``` bash
 git checkout main
@@ -219,9 +257,9 @@ git merge feature-branch
 
 ------------------------------------------------------------------------
 
-##  git rebase
+## git rebase
 
-**Purpose:** Reapply commits from one branch on top of another branch.
+Reapply commits from one branch on top of another.
 
 ``` bash
 git checkout feature-branch
@@ -230,51 +268,60 @@ git rebase main
 
 ------------------------------------------------------------------------
 
-##  Squash Commit vs Merge Commit
+## Squash Commit vs Merge Commit
 
-**Merge Commit** keeps the full history of the feature branch.
+### Merge Commit
+
+Preserves all commit history.
 
 ``` bash
 git merge feature-branch
 ```
 
-**Squash Commit** combines all feature branch commits into a single
-commit.
+### Squash Commit
+
+Combines commits into one.
 
 ``` bash
 git merge --squash feature-branch
-git commit -m "Squashed feature commits"
+git commit -m "Squashed commit"
 ```
 
 ------------------------------------------------------------------------
 
-##  git stash
+# 6️⃣ Stash & Cherry Pick
 
-**Purpose:** Temporarily save uncommitted changes.
+## git stash
 
-### Stash Changes
+Temporarily save uncommitted changes.
 
 ``` bash
 git stash
 ```
 
-### View Stashes
+List stashes:
 
 ``` bash
 git stash list
 ```
 
-### Apply Stash
+Apply stash:
 
 ``` bash
 git stash apply
 ```
 
+Remove stash:
+
+``` bash
+git stash drop
+```
+
 ------------------------------------------------------------------------
 
-##  git cherry-pick
+## git cherry-pick
 
-**Purpose:** Apply a specific commit from another branch.
+Apply a specific commit from another branch.
 
 ``` bash
 git cherry-pick <commit-id>
@@ -288,18 +335,124 @@ git cherry-pick a3f5d2b
 
 ------------------------------------------------------------------------
 
-#  Basic Workflow Example
+# 7️⃣ Reset & Revert
+
+## git reset
+
+Undo commits locally.
+
+Soft reset:
 
 ``` bash
-git init
-git remote add origin https://github.com/username/repository.git
-git status
-git add .
-git commit -m "Initial commit"
-git branch feature-branch
-git checkout feature-branch
-git push -u origin feature-branch
-git pull origin main
-git log --oneline
+git reset --soft HEAD~1
 ```
+
+Hard reset:
+
+``` bash
+git reset --hard HEAD~1
+```
+
+------------------------------------------------------------------------
+
+## git revert
+
+Create a new commit that undoes previous commit.
+
+``` bash
+git revert <commit-id>
+```
+
+------------------------------------------------------------------------
+
+# 8️⃣ GitHub CLI (gh) Commands
+
+## Authenticate GitHub CLI
+
+``` bash
+gh auth login
+```
+
+------------------------------------------------------------------------
+
+## Create Repository
+
+``` bash
+gh repo create repo-name
+```
+
+------------------------------------------------------------------------
+
+## Clone Repository
+
+``` bash
+gh repo clone username/repository
+```
+
+------------------------------------------------------------------------
+
+## Create Pull Request
+
+``` bash
+gh pr create --title "Feature update" --body "Description"
+```
+
+------------------------------------------------------------------------
+
+## View Pull Requests
+
+``` bash
+gh pr list
+```
+
+------------------------------------------------------------------------
+
+## Merge Pull Request
+
+``` bash
+gh pr merge
+```
+
+------------------------------------------------------------------------
+
+## Create GitHub Gist
+
+``` bash
+gh gist create file.sh --public --desc "Sample script"
+```
+
+------------------------------------------------------------------------
+
+# 🚀 Typical Git Workflow
+
+``` bash
+git clone https://github.com/user/repo.git
+cd repo
+
+git checkout -b feature-branch
+
+git add .
+git commit -m "Feature added"
+
+git push -u origin feature-branch
+
+git pull origin main
+git merge main
+```
+
+------------------------------------------------------------------------
+
+#  Summary
+
+This document covers core Git operations including:
+
+-   Repository setup
+-   Daily development workflow
+-   Branch management
+-   Remote repository interaction
+-   Advanced Git techniques
+-   GitHub CLI usage
+
+Mastering these commands enables efficient collaboration and version
+control in modern DevOps workflows.
 
